@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffe9cc;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      color: #ff6600;
+    }
+
+    .container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 70%;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff8533;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff751a;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background: #fff4e6;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    li button {
+      background-color: red;
+      padding: 5px 10px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+  </style>
+<body>
+    <h1>Todo App</h1>
+
+    <div class="container">
+        <div>
+            <input placeholder="Enter Your Todo" type="text" id="todo-input">
+            <button id="add-button">Add</button>
+            <button id="remove-button">Remove All</button>
+        </div>
+        <div>
+            <ul id="todo-items-container">
+            </ul>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>
