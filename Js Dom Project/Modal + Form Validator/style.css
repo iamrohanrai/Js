@@ -1,0 +1,152 @@
+/* .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-msg {
+  color: red;
+  font-size: 12px;
+} */
+
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background styling */
+body {
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 20px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #5848e5;
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* Modal Content */
+.modal-content {
+  background: #ffffff;
+  padding: 30px 25px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Form inputs */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+/* Error message */
+.error-msg {
+  color: #ff3f3f;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  padding-left: 4px;
+}
+
+/* Close button specific */
+#closeBtn {
+  background-color: #ff5c5c;
+  margin-bottom: 10px;
+  float: right;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+#closeBtn:hover {
+  background-color: #e04e4e;
+}
