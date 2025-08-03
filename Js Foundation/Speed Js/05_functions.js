@@ -32,3 +32,5 @@ resultperson();
 
 // call actually call it
 person1.greet.call(person2);
+
+// Learn About Starvation in js
