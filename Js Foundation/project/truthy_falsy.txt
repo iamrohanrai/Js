@@ -1,0 +1,18 @@
+Falsy Values (sirf ye hi 6 values falsy hoti hain):
+Value	Type	Kyu falsy hai
+false	Boolean	Already false
+0	Number	Zero falsy hota hai
+""	String	Empty string falsy hoti hai
+null	Object	Null means "no value"
+undefined	Undefined	No value defined
+NaN	Number	Not a valid number
+
+Truthy Values (baaki sab truthy hote hain):
+Example value	Kyu truthy hai
+true	Boolean true
+1, -1, 3.14	Non-zero numbers
+"hello"	Non-empty string
+" " (space bhi)	Non-empty string
+[] (empty array)	Object type truthy hota hai
+{} (empty object)	Object type truthy hota hai
+function() {}	Functions truthy hote hain

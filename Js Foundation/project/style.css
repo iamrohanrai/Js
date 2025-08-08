@@ -1,0 +1,114 @@
+:root{
+    --bg-1: #0f172a;   /* deep navy */
+    --bg-2: #071033;   /* darker */
+    --card: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.08);
+    --accent: #7c5cff;
+    --muted: rgba(255,255,255,0.7);
+  }
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.12), transparent 8%),
+                radial-gradient(800px 400px at 90% 90%, rgba(0,200,255,0.04), transparent 8%),
+                linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    color: white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .clock-container{
+    width: min(720px, 92vw);
+    padding: clamp(18px, 3.5vw, 36px);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px) saturate(120%);
+    text-align:center;
+    transform: translateZ(0);
+    transition: transform .2s ease;
+  }
+
+  .clock-container:hover{
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  /* Time styling */
+  #time{
+    margin:0;
+    font-weight:700;
+    letter-spacing: 0.02em;
+    font-size: clamp(36px, 8vw, 84px); /* responsive big digits */
+    line-height:1;
+    display:flex;
+    align-items: baseline;
+    justify-content:center;
+    gap:0.6rem;
+    color: linear-gradient(90deg, #fff, #e9e9ff); /* fallback doesn't apply to text, kept for idea */
+    text-shadow: 0 6px 28px rgba(14,12,30,0.55), 0 1px 0 rgba(255,255,255,0.02);
+    font-variant-numeric: tabular-nums;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, monospace;
+  }
+
+  /* split out minutes/seconds/am-pm for smaller styling control */
+  #time span.digits{
+    display:inline-block;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding: .2rem .6rem;
+    border-radius: 10px;
+    min-width: 0;
+  }
+
+  #time .ampm {
+    font-size: clamp(12px, 2.8vw, 18px);
+    font-weight:600;
+    padding: .35rem .55rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(124,92,255,0.16), rgba(0,200,255,0.06));
+    color: white;
+    margin-left: .5rem;
+    box-shadow: 0 6px 18px rgba(124,92,255,0.14);
+    align-self: center;
+  }
+
+  /* Date styling */
+  #date{
+    margin-top: .55rem;
+    margin-bottom:0;
+    color: var(--muted);
+    font-size: clamp(12px, 2.6vw, 18px);
+    font-weight:500;
+    letter-spacing:0.02em;
+  }
+
+  /* small decorative line */
+  .clock-container::before{
+    content:"";
+    display:block;
+    height:2px;
+    width:64px;
+    margin: 0 auto 16px auto;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(124,92,255,0.9), rgba(0,200,255,0.6));
+    opacity:0.18;
+  }
+
+  /* responsive tweaks for very small screens */
+  @media (max-width:420px){
+    .clock-container{
+      padding: 14px;
+      border-radius:12px;
+    }
+    #time{
+      gap:0.4rem;
+    }
+    #time .ampm{
+      padding:.25rem .45rem;
+    }
+  }
