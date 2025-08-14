@@ -1,0 +1,51 @@
+“async” hone ka main reason callback ka hona nahi hai,
+callback toh sirf result receive karne ka tareeka hai.
+Async ka asli kaaran Node.js ka event loop + background thread pool ka mechanism hai.
+
+1️⃣ Normal (sync) code ka flow
+
+Sync ka matlab — ek kaam khatam hone tak agla start nahi hota:
+
+const data = fs.readFileSync("file.txt", "utf-8"); // Yeh line block karegi
+console.log("file read complete");
+
+
+Jab tak file pura read nahi hota, console.log execute nahi hota.
+
+CPU idle baitha rahega file read hone ka wait karte hue.
+
+Isse performance slow ho jaata hai.
+
+2️⃣ Async code ka flow
+
+Async mein:
+
+fs.readFile("file.txt", "utf-8", (err, data) => {
+  console.log("file read complete");
+});
+console.log("next line");
+
+
+Jab tum fs.readFile call karte ho, Node.js request ko libuv ke thread pool ya OS async API ko bhej deta hai.
+
+Ye kaam background mein hota hai.
+
+JavaScript thread turant free ho jaata hai aur "next line" print ho jaata hai.
+
+Jab background kaam complete hota hai, Node.js callback ko event loop queue mein daal deta hai.
+
+Event loop jab free hota hai, tab tumhara callback run hota hai.
+
+3️⃣ Role of callback in async
+
+Callback async ka cause nahi hai — ye sirf ek notification system hai.
+
+Real async ka kaam Node.js ka event loop + libuv karta hai.
+
+Callback ke bina bhi async ho sakta hai — jaise Promise, async/await — jo internally callback hi use karte hain, bas syntax better hota hai.
+
+4️⃣ Simple analogy
+
+Sync = Tum khud line mein khade ho ticket lene ke liye, aur agla kaam tab tak nahi karte jab tak ticket na mil jaye.
+
+Async = Tum agent ko bol dete ho “ticket le aana, milte hi phone karna” aur tum apna kaam karte rehte ho. Callback = uska phone call.
