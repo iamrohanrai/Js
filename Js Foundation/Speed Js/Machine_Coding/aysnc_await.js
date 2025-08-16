@@ -35,10 +35,19 @@ function unlinkWithPromise(filepath) {
     });
   });
 }
+
+function wait(seconds) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, seconds * 1000);
+  });
+}
 async function doTask() {
   try {
     const fileContent = await readFileWithPromise("./hello.txt", "utf-8");
     await writeFileWithPromise("./backup2.txt", fileContent);
+    await wait(10);
     await unlinkWithPromise("./hello.txt");
   } catch (error) {
     console.log("Error while running", error);
